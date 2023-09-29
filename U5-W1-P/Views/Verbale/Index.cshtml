@@ -1,0 +1,43 @@
+﻿@model IEnumerable<U5_W1_P.Models.Verbale>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Elenco Verbali</h2>
+
+<p>@Html.ActionLink("Nuovo Verbale", "NewCreate")</p>
+
+<table class="table">
+    <tr>
+        <th>Data Violazione</th>
+        <th>Indirizzo Violazione</th>
+        <th>Nominativo Agente</th>
+        <th>Data Trascrizione Verbale</th>
+        <th>Importo</th>
+        <th>Decurtamento Punti</th>
+        <th>Nome Anagrafica</th>
+        <th>Descrizione Tipo Violazione</th>
+        <th></th>
+    </tr>
+
+    @foreach (var verbale in Model)
+    {
+        <tr>
+            <td>@verbale.DataViolazione.ToShortDateString()</td>
+            <td>@verbale.IndirizzoViolazione</td>
+            <td>@verbale.Nominativo_Agente</td>
+            <td>@verbale.DataTrascrizioneVerbale.ToShortDateString()</td>
+            <td>@verbale.Importo</td>
+            <td>@verbale.DecurtamentoPunti</td>
+            <td>@verbale.idanagrafica</td>
+            <td>@verbale.idviolazione</td>
+            <td>
+                @Html.ActionLink("Dettagli", "Details", new { id = verbale.idverbale })
+                @Html.ActionLink("Modifica", "Edit", new { id = verbale.idverbale })
+                @Html.ActionLink("Elimina", "Delete", new { id = verbale.idverbale })
+            </td>
+        </tr>
+    }
+</table>
+

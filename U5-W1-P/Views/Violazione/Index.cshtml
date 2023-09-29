@@ -1,0 +1,25 @@
+﻿@model IEnumerable<U5_W1_P.Models.Violazione>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Elenco Tipi di Violazione</h2>
+
+<p>@Html.ActionLink("Nuova Violazione", "Create")</p>
+
+<table class="table">
+    <tr>
+        <th>ID</th>
+        <th>Descrizione</th>
+    </tr>
+
+    @foreach (var violazione in Model)
+    {
+        <tr>
+            <td>@violazione.idviolazione</td>
+            <td>@violazione.Descrizione</td>
+        </tr>
+    }
+</table>
+
